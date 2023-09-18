@@ -36,7 +36,7 @@ export default function SessionCard() {
               Shoot 1
             </Heading>
             <Text pt="2" fontSize="sm">
-              Shoot detaisl
+              Shoot details
             </Text>
           </Box>
           <Box>
