@@ -41,7 +41,7 @@ export default function Header() {
         <Stat name="Last 300 shots average" value={8.65} />
         <Stat name="Last 60 shots average" value={9.3} />
         <Stat name="Best 10 shot average" value={10.12} />
-        <Card variant={"filled"}>
+        <Card>
           <CardBody align="center">
             <Heading fontFamily={"Rubik Variable, sans-serif"} size={"md"}>
               Measurements
