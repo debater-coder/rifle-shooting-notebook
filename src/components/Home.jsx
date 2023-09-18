@@ -1,64 +1,81 @@
 import {
-  useColorMode,
-  useColorModeValue,
   Flex,
-  IconButton,
-  SimpleGrid,
   Card,
-  CardBody,
-  Heading,
-  Tooltip,
-  Spacer,
+  CardHeader,
   Text,
+  Heading,
+  CardBody,
+  Box,
+  Stack,
+  StackDivider,
 } from "@chakra-ui/react";
-import Stat from "./Stat";
-import { MoonIcon, SunIcon, EditIcon } from "@chakra-ui/icons";
+import Header from "./Header";
+
+function SessionCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <Flex w="full" justify={"space-between"} align={"center"}>
+          <Heading
+            fontFamily={"Rubik Variable, sans-serif"}
+            fontSize={"2xl"}
+            fontWeight={"500"}
+          >
+            Saturday Week 3
+          </Heading>
+          <Text fontFamily={"Rubik Variable, sans-serif"} fontWeight={"400"}>
+            5/06/2023
+          </Text>
+        </Flex>
+      </CardHeader>
+      <CardBody>
+        <Stack divider={<StackDivider />} spacing="4">
+          <Box>
+            <Heading size="xs" textTransform="uppercase">
+              Shoot 1
+            </Heading>
+            <Text pt="2" fontSize="sm">
+              Shoot detaisl
+            </Text>
+          </Box>
+          <Box>
+            <Heading size="xs" textTransform="uppercase">
+              Shoot 2
+            </Heading>
+            <Text pt="2" fontSize="sm">
+              Shoot details
+            </Text>
+          </Box>
+          <Box>
+            <Heading size="xs" textTransform="uppercase">
+              Notes
+            </Heading>
+            <Text pt="2" fontSize="sm">
+              What I did well... What I didn{"'"}t do well... Coach Feedback
+            </Text>
+          </Box>
+        </Stack>
+      </CardBody>
+    </Card>
+  );
+}
 
 export default function Home() {
-  const { toggleColorMode } = useColorMode();
-  const toggleColorModeIcon = useColorModeValue(<MoonIcon />, <SunIcon />);
-
   return (
-    <Flex direction="column" align="center" justify="top" gap={"10px"} w="full">
-      <Flex
-        direction={"column"}
-        m={"10px"}
-        maxW={["full", "80%"]}
-        w="full"
-        gap={3}
-      >
-        <Flex>
-          <IconButton
-            aria-label="Toggle color mode"
-            icon={toggleColorModeIcon}
-            variant={"ghost"}
-            onClick={toggleColorMode}
-          />
-          <Spacer />
-          <Tooltip label="Customise stats">
-            <IconButton
-              aria-label="Customise stats"
-              icon={<EditIcon />}
-              variant={"ghost"}
-            />
-          </Tooltip>
-        </Flex>
-        <SimpleGrid minChildWidth="200px" spacing="20px" w="full">
-          <Stat name="Last 300 shots average" value={8.65} />
-          <Stat name="Last 60 shots average" value={9.3} />
-          <Stat name="Best 10 shot average" value={10.12} />
-          <Card variant={"filled"}>
-            <CardBody align="center">
-              <Heading fontFamily={"Rubik Variable, sans-serif"} size={"md"}>
-                Measurements
-              </Heading>
-              <Text fontFamily={"Rubik Variable, sans-serif"}>
-                lorem ipsum hello world foo bar baz
-              </Text>
-            </CardBody>
-          </Card>
-        </SimpleGrid>
-      </Flex>
+    <Flex
+      direction={"column"}
+      m={"10px"}
+      maxW={["full", "80%"]}
+      w="full"
+      gap={"12px"}
+      mx="auto"
+    >
+      <Header />
+      <SessionCard />
+      <SessionCard />
+      <SessionCard />
+      <SessionCard />
+      <SessionCard />
     </Flex>
   );
 }
